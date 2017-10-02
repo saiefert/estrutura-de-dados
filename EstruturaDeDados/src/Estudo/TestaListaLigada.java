@@ -6,11 +6,14 @@ public class TestaListaLigada {
         ListaLigada lista = new ListaLigada();
 
         System.out.println(lista);
-        lista.adicionaNoComeco("Josmar");
+        lista.adicionaNoComeco(1);
         System.out.println(lista);
-        lista.adicionaNoComeco("Jorge");
+        lista.adicionaNoComeco(2);
         System.out.println(lista);
-        lista.adicionaNoComeco("Vilso");
+        lista.adicionaNoComeco(3);
         System.out.println(lista);
+        lista.adiciona(4);
+        System.out.println(lista);
+
     }
 }

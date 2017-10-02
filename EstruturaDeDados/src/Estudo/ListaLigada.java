@@ -10,7 +10,7 @@ public class ListaLigada {
         Celula nova = new Celula(elemento, primeira);
         this.primeira = nova;
 
-        if(this.totalDeElementos == 0) {
+        if (this.totalDeElementos == 0) {
             this.ultima = this.primeira;
         }
 
@@ -18,9 +18,19 @@ public class ListaLigada {
     }
 
     public void adiciona(Object elemento) {
+
+        if (this.totalDeElementos == 0) {
+            adicionaNoComeco(elemento);
+        } else {
+            Celula nova = new Celula(elemento, null);
+            this.ultima.setProximo(nova);
+            this.ultima = nova;
+            this.totalDeElementos++;
+        }
     }
 
     public void adiciona(int posicao, Object elemento) {
+
     }
 
     public Object pega(int posicao) {
@@ -39,9 +49,9 @@ public class ListaLigada {
     }
 
     @Override
-    public String toString () {
+    public String toString() {
 
-        if(this.totalDeElementos == 0) {
+        if (this.totalDeElementos == 0) {
             return "[]";
         }
 
@@ -49,7 +59,7 @@ public class ListaLigada {
 
         StringBuilder builder = new StringBuilder("[");
 
-        for(int i = 0; i < totalDeElementos; i++) {
+        for (int i = 0; i < totalDeElementos; i++) {
             builder.append(atual.getElemento());
             builder.append(",");
 
