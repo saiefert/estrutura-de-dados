@@ -36,17 +36,18 @@ public class main {
         tamanho++;
     }
 
-    public void inserePosicao(int elemento, int posicao) {
-        Celula aux = new Celula(elemento, null);
-        Celula proxaux = inicio;
-        for (int i = tamanho - 1; i >= posicao; i--) {
-            if (i == posicao) {
-                Celula aux2 = proxaux.getPonteiro();
-                proxaux.setPonteiro(aux);
-                aux.setPonteiro(aux2);
+    public void inserePosicao(int val, int pos) {
+
+        Celula nptr = new Celula(val, null);
+        Celula ptr = inicio;
+        for (int i = tamanho - 1; i >= pos; i--) {
+            if (i == pos) {
+                Celula tmp = ptr.getPonteiro();
+                ptr.setPonteiro(nptr);
+                nptr.setPonteiro(tmp);
                 break;
             }
-            proxaux = proxaux.getPonteiro();
+            ptr = ptr.getPonteiro();
         }
         tamanho++;
     }
@@ -55,16 +56,16 @@ public class main {
         System.out.print("Impressão: ");
         Celula aux = inicio;
         if (inicio.getPonteiro() == inicio) {
-            System.out.print(inicio.getInfo() + "->" + aux.getInfo() + "\n");
+            System.out.print(inicio.getInfo() + "<" + aux.getInfo() + "\n");
             return;
         }
-        System.out.print(inicio.getInfo() + ",");
+        System.out.print(inicio.getInfo() + " < ");
         aux = inicio.getPonteiro();
         while (aux.getPonteiro() != inicio) {
-            System.out.print(aux.getInfo() + ",");
+            System.out.print(aux.getInfo() + " < ");
             aux = aux.getPonteiro();
         }
-        System.out.print(aux.getInfo() + ",");
+        System.out.print(aux.getInfo() + " < ");
         aux = aux.getPonteiro();
         System.out.print(aux.getInfo() + "\n");
     }
@@ -74,6 +75,7 @@ public class main {
         main principal = new main();
 
         int quantidade = 0;
+        int tam = 0;
         System.out.println("=====================================================");
         System.out.println("Digite a quantidade de elementos a serem inseridos: ");
         quantidade = sc.nextInt();
@@ -81,17 +83,30 @@ public class main {
         while (quantidade > 0) {
             principal.insereUltimo(sc.nextInt());
             quantidade--;
+            tam++;
         }
         principal.imprime();
 
         int tamanho = principal.tamanho - 1;
-        System.out.println("Insira o elemento que quer adicionar da posição 0 a " + tamanho);
+        System.out.println("Insira o elemento que quer adicionar da posição 1 a " + tamanho);
 
         System.out.print("Insira o elemento: ");
         int numero = sc.nextInt();
-        System.out.print("Insira a posição: ");
-        int posicao = sc.nextInt();
-        principal.inserePosicao(numero,posicao);
-        principal.imprime();
+        int posicao;
+
+        do {
+            System.out.print("Insira a posição: ");
+            posicao = sc.nextInt();
+
+            if (posicao == 0){
+                System.out.println("Você digitou uma posição incorreta!");
+            }else if (posicao >= tam){
+                System.out.println("Você digitou uma posição maior ou iguao o tamanho!");
+            }else {
+                principal.inserePosicao(numero, posicao);
+                principal.imprime();
+            }
+        }while (posicao != 0);
+
     }
 }
