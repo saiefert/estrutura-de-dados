@@ -1,4 +1,4 @@
-package ed.fila;
+package ProvaQuestaoDois;
 
 import java.util.LinkedList;
 import java.util.List;

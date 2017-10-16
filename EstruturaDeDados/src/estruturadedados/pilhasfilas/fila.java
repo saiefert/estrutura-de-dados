@@ -1,7 +1,5 @@
 package estruturadedados.pilhasfilas;
 
-import java.util.Scanner;
-
 public class fila {
 
     public tipoNo cabeca;
@@ -17,15 +15,12 @@ public class fila {
             cabeca.setProx(null);
         } else {
             tipoNo aux, novo;
-
             novo = new tipoNo();
             novo.setInfo(info);
             novo.setProx(null);
-
             aux = cabeca;
             while (aux.getProx() != null)
                 aux = aux.getProx();
-
             aux.setProx(novo);
         }
 
@@ -51,8 +46,6 @@ public class fila {
 
             aux.setProx(novo);
         }
-
-        System.out.println("Elemento " + info + " inserido com sucesso! ");
     }
 
     /****************************************/
@@ -206,7 +199,7 @@ public class fila {
     }
 
     public void menu() {
-        int valor, opcao = 0, n=0;
+        int valor, opcao = 0, n = 0;
         System.out.print("\n------------ Menu ------------\n");
         while (opcao != -1) {
             opcao = Input.readInt("\nDigite a opcao: \n(1) Insere Inicio \n(2) Insere Fim \n(3) Remove Inicio \n(4) Remove Fim \n(5) Imprime\n(6) Remove n-esimo\n(7) Insere Circ\n(8) Remove Circ\n(9) Imprime Circ\n(-1) Sair \nOpcao: ");

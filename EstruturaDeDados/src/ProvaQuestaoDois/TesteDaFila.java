@@ -1,4 +1,4 @@
-package ed.fila;
+package ProvaQuestaoDois;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -21,12 +21,18 @@ public class TesteDaFila {
         //Fila é uma estrutura de dados onde o primeiro a entrar é o primeiro a sair. É como uma fila de banco: o primeiro que chega na fila é o primeiro a ser atendido.
 
         Queue<String> filaDoJava = new LinkedList<String>();
-        filaDoJava.add("Mauricio"); // primeiro a entrar
-        filaDoJava.add("Paulo"); // segundo a entrar
-        filaDoJava.add("Guilherme"); // terceiro a entrar
-        filaDoJava.poll(); // remove o primeiro a entrar
-        filaDoJava.add("João"); // quarto a entrar
-        filaDoJava.poll(); // remove o segundo a entrar
+        filaDoJava.add("3");
+        filaDoJava.add("Paulo");
+        filaDoJava.add("Guilherme");
+        filaDoJava.poll();
+        filaDoJava.poll();
+        filaDoJava.add("3");
+        filaDoJava.add("Paulo");
+        filaDoJava.add("Guilherme");
+        filaDoJava.add("3");
+        filaDoJava.add("Paulo");
+        filaDoJava.add("Guilherme");
+        filaDoJava.poll();
         System.out.println(filaDoJava);
 
     }
